@@ -3,9 +3,15 @@ package com.example.calculator;  // Package name for organizing related classes
 import com.example.calculator.service.CalculatorService; // Importing the CalculatorService class
 import org.junit.jupiter.api.Test;                       // Importing the JUnit 5 Test annotation
 import static org.junit.jupiter.api.Assertions.*;        // Importing assertion methods from JUnit
+import com.example.calculator.controller.HealthCheckController;
 
 // Test class to verify the functionality of CalculatorService
 public class CalculatorApplicationTests {
+	@Test
+	public void testHealthEndpoint() {
+		HealthCheckController controller = new HealthCheckController();
+		assertEquals("Service is up and running!", controller.health());
+	}
 
 	// Creating an instance of the CalculatorService to use in test methods
 	private final CalculatorService service = new CalculatorService();
