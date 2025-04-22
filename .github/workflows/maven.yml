@@ -1,5 +1,6 @@
+#The file defines a sequence of steps that are executed whenever you push code to the master branch or open a pull request targeting the master branch.
 name: Java CI/CD with Maven & Docker
-
+#When someone pushes code to the master branch  and Or creates a pull request targeting master
 on:
   push:
     branches: [ "master" ]
@@ -11,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the code from the repo
+      # Step 1: Checkout the code from the repo pull code from repo
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -26,7 +27,7 @@ jobs:
       # Step 3: Run unit tests using Maven
       - name: Run unit tests
         run: mvn test
-
+      #This step cleans the previous build, packages the application into a .jar file, and skips tests (-DskipTests
       # Step 4: Build the app and skip the tests since we've already run them
       - name: Build the app
         run: mvn clean package -DskipTests

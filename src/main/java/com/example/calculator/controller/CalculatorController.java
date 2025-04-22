@@ -1,3 +1,5 @@
+//responsible for handling HTTP requests related to the calculator operations.
+//
 package com.example.calculator.controller;
 
 import com.example.calculator.service.CalculatorService;
